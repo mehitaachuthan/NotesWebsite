@@ -1,0 +1,9 @@
+.jumbotron {
+  margin: 10px;
+  border-radius: 10px;
+}
+
+#submit {
+  color: white;
+  background-color: rgb(51, 163, 255);
+}
