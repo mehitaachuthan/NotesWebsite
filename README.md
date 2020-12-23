@@ -1,2 +1,2 @@
-# PollWebApp
-Allows users to login and participate in polls and create polls
+# NotesWebApp
+Allows users to create an account and save thoughts or ideas
