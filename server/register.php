@@ -1,12 +1,16 @@
 <?php
-  #$user_first_name = $_POST["first_name"];
-  #$user_last_name = $_POST["last_name"];
-  #$user_username = $_POST["username"];
-  #$user_password = $_POST["password"];
+  # unwrap data as it is sent, may be in JSON or some other form
+  $user_first_name = $_POST["first_name_data"];
+  $user_last_name = $_POST["last_name_data"];
+  $user_username = $_POST["username_data"];
+  $user_password = $_POST["password_data"];
 
-  #echo "Welcome! ";
-  #echo "Your first name: " . $user_first_name . "<br>";
-  #echo "Your last name: " . $user_last_name . "<br>";
-  #echo "Your username: " . $user_username . "<br>";
-  #echo "Your password: " . $user_password . "<br>";
+  #set success to true for now
+  $success = TRUE;
+
+  #send to database
+
+
+  #return success
+  echo $success;
 ?>
