@@ -1,2 +1,2 @@
 # NotesWebApp
-Allows users to create an account and save thoughts or ideas
+Allows users to save thoughts or ideas
