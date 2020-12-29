@@ -1,4 +1,4 @@
-//anonymous function for whne document loads
+//anonymous function for when document loads
 $(function() {
   $("#register_form").on("submit", function(e){
     // get form data

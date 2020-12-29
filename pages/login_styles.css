@@ -2,3 +2,7 @@
   color: white;
   background-color: rgb(51, 163, 255);
 }
+
+.error_message {
+  color: red;
+}

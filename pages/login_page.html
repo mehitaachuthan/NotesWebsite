@@ -10,6 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <script src="../handlers/login.js"></script>
+
     <title>Login Page</title>
   </head>
 
@@ -27,30 +29,24 @@
     </nav>
 
     <div class = "container">
-      <form class="form-horizontal">
+      <form id="login_form" class="form-horizontal">
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-4">
             <h2>Login Page</h2>
             <p>Please enter your username and password</p>
+            <div class="error_message" id="general_error"></div>
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-4" for="username">Username:</label>
           <div class="col-sm-5">
-            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username"><div class="error_message" id="username_error"></div>
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-4" for="password">Password:</label>
           <div class="col-sm-5">
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-          </div>
-        </div>
-        <div class="form-group">        
-          <div class="col-sm-offset-4 col-sm-5">
-            <div class="checkbox">
-              <label><input type="checkbox" name="remember"> Remember me</label>
-            </div>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password"><div class="error_message" id="password_error"></div>
           </div>
         </div>
         <div class="form-group">        
