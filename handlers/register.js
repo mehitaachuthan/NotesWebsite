@@ -10,6 +10,8 @@ $(function() {
     //alright to send form data
     var ready = true;
 
+    $("#general_error").html("");
+
     if(first_name_input === "") {
       $("#first_name_error").html("<p>First name required</p>");
       ready = false;
@@ -56,15 +58,17 @@ $(function() {
         success: function(error_statuses) {
           // error_statuses is an array, has been parsed already
           var succeeded = error_statuses[0];
-          var first_name_error_msg = error_statuses[1];
-          var last_name_error_msg = error_statuses[2]; 
-          var username_error_msg = error_statuses[3]; 
-          var password_error_msg = error_statuses[4]; 
+          var general_error_msg = error_statuses[1];
+          var first_name_error_msg = error_statuses[2];
+          var last_name_error_msg = error_statuses[3]; 
+          var username_error_msg = error_statuses[4]; 
+          var password_error_msg = error_statuses[5]; 
   
           if(succeeded) {
             $("#register_form").html("<div class='col-sm-offset-4 col-sm-5' id='message'></div>");
             $("#message").html("<h4>Successfully registered! You may go to the front page and login now.</h4>");
           } else {
+            $("#general_error").html("<p>" + general_error_msg + "</p>");
             $("#first_name_error").html("<p>" + first_name_error_msg + "</p>");
             $("#last_name_error").html("<p>" + last_name_error_msg + "</p>");
             $("#username_error").html("<p>" + username_error_msg + "</p>");
