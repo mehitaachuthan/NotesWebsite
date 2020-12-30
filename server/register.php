@@ -18,7 +18,7 @@
   $servername = 'localhost';
   $db_name   = 'notes_users_db';
   $username = 'root';
-  $password = 'qp0sk0dj0vb01#';
+  $password = '';
   $charset = 'utf8mb4';
 
   #change error mode to throw exceptions whenever error occurs
