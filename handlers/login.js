@@ -1,13 +1,18 @@
 $(function() {
+  //Handle login form submission
   $("#login_form").on("submit", function(e){
     
+    //get username and password from fields
     var username_input = $("#username").val().trim();
     var password_input = $("#password").val().trim();
 
+    //whether ok to send data to server, both username and password exist
     var ready = true;
 
+    //general error field empty
     $("#general_error").html("");
 
+    //username or password empty means error, not ready to send data to server yet
     if(username_input === "") {
       $("#username_error").html("<p>Username required</p>");
       ready = false;
@@ -22,10 +27,7 @@ $(function() {
       $("#password_error").html("");
     }
 
-    if(!(username_input === "" || password_input === "")) {
-      ready = true;
-    }
-
+    //send post request
     if(ready) {
       $.ajax({
         type: "POST",
@@ -35,11 +37,13 @@ $(function() {
           password_data : password_input
         },
         success: function(error_statuses){
+          //unwrap returned data from array, json parsed already since dataType specified
           var succeeded = error_statuses[0];
           var general_error_msg = error_statuses[1];
           var username_error_msg = error_statuses[2];
           var password_error_msg = error_statuses[3];
 
+          //display errors if not successful, otherwise go to next page
           if(succeeded) {
             $("#login_form").html("<div class='col-sm-offset-4 col-sm-5' id='message'></div>");
             $("#message").html("<h4>Successfully logged in!</h4>");
@@ -53,6 +57,7 @@ $(function() {
       });
     }
 
+    //prevent default submission behaviour of refreshing
     e.preventDefault();
   });
 });
