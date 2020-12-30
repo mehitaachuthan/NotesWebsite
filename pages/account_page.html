@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../pages/home_page_styles.css">
+    <link rel="stylesheet" href="../pages/account_page_styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <script src="../handlers/account.js"></script>
 
-    <title>Home</title>
+    <title>Account</title>
   </head>
 
   <body>
@@ -25,12 +27,11 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-plus"></span> Add</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <li><a href="#" id="logout_button"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
       </div>
     </nav>
 
-    <p>notes in Card View</p>
-
+    <div id="message"></div>
   </body>
 </html>

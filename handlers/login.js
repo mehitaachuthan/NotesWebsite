@@ -45,8 +45,7 @@ $(function() {
 
           //display errors if not successful, otherwise go to next page
           if(succeeded) {
-            $("#login_form").html("<div class='col-sm-offset-4 col-sm-5' id='message'></div>");
-            $("#message").html("<h4>Successfully logged in!</h4>");
+            window.location.href="http://notes.local/pages/account_page.html";
           } else {
             $("#general_error").html("<p>" + general_error_msg + "</p>");
             $("#username_error").html("<p>" + username_error_msg + "</p>");

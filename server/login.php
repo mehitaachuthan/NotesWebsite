@@ -15,7 +15,7 @@
   $servername = "localhost";
   $db_name = "notes_users_db";
   $username = "root";
-  $password = "";
+  $password = "qp0sk0dj0vb01#";
   $charset = "utf8mb4";
 
   #change error mode to throw exception and make fetch value appear as associative array
@@ -43,7 +43,12 @@
       if($num_match === 0) {
         $success = FALSE;
         $general_error_msg = "Invalid login";
+      } else {
+        #successful login
+        session_start();
+        $_SESSION['username'] = $user_username;
       }
+
     } else {
       #query failed means problem with statement
       $success = FALSE;
