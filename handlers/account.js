@@ -7,8 +7,21 @@ $(function(){
     data: {
       action_to_take : "receive_data"
     },
-    success: function(username) {
+    dataType: "json",
+    success: function(results) {
+      var username = results[0];
+      var succeeded = results[1];
+      var notes_list = results[2];
+      var main_page_error = results[3];
+
       $("#message").html("<h4>Welcome " + username + "</h4>");
+
+      if(succeeded) {
+        var list_length = Object.keys(notes_list).length;
+        $("#main_page_error").html("<p>" + list_length + "</p>");
+      } else {
+        $("#main_page_error").html("<p>" + main_page_error + "</p>");
+      }
     }
   });
 

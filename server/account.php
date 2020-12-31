@@ -9,20 +9,23 @@
     session_unset();
     session_destroy();
 
-  } else if($action_to_take === "receive_data") {
+  } else if($action_to_take === "receive_data" or $action_to_take === "add_data") {
+    $note_title_data = "";
+    $note_body_data = "";
+
     $username = $_SESSION['username'];
-    echo $username;
-
-  } else if($action_to_take === "add_data") {
-    $note_title_data = $_POST['note_title_data'];
-    $note_body_data = $_POST['note_body_data'];
-
     $user_id = $_SESSION['user_id'];
 
     $success = TRUE;
 
+    $main_page_error = "";
     $general_note_error = "";
     $note_title_error = "";
+
+    if($action_to_take === "add_data") {
+      $note_title_data = $_POST['note_title_data'];
+      $note_body_data = $_POST['note_body_data'];
+    }
 
     $servername = "localhost";
     $db_name = "notes_users_db";
@@ -38,19 +41,44 @@
     try {
       $conn = new PDO("mysql:host=$servername;dbname=$db_name;charset=$charset", $db_username, $db_password, $options);
 
-      #verify that same user not have duplicate note_title
+      if($action_to_take === "receive_data") {
 
-      $sql_statement = "INSERT INTO notes (user_id, note_title, note_body) VALUES (" . $user_id . ", '" . $note_title_data . "', '" . $note_body_data . "');";
+        $sql_statement = "SELECT * FROM notes WHERE user_id='$user_id'";
+        $notes_result = $conn->query($sql_statement);
 
-      $conn->exec($sql_statement);
+        if($notes_result) {
+          $notes = $notes_result->fetchAll();
+        } else {
+          $success = FALSE;
+          $main_page_error = "Failed to fetch query";
+        }
+
+      } else {
+        #add new note
+
+        #verify that same user not have duplicate note_title
+
+        $sql_statement = "INSERT INTO notes (user_id, note_title, note_body) VALUES (" . $user_id . ", '" . $note_title_data . "', '" . $note_body_data . "');";
+
+        $conn->exec($sql_statement);
+      }
     } catch(PDOException $e) {
       $success = FALSE;
-      $general_note_error = $e->getMessage();
+      if($action_to_take === "receive_data") {
+        $main_page_error = $e->getMessage();
+      } else {
+        $general_note_error = $e->getMessage();
+      }
     }
 
     $conn = null;
 
-    $error_statuses = array($success, $general_note_error, $note_title_error);
-    echo json_encode($error_statuses);
+    if($action_to_take === "receive_data") {
+      $results = array($username, $success, $notes, $main_page_error);
+      echo json_encode($results);
+    } else {
+      $error_statuses = array($success, $general_note_error, $note_title_error);
+      echo json_encode($error_statuses);
+    }
   }
 ?>

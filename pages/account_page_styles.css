@@ -12,3 +12,20 @@
 .error_message {
   color: red;
 }
+.cards_container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+.card{
+  margin: auto;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px;
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.card_title {
+  text-align: center;
+}

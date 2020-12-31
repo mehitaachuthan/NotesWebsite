@@ -15,3 +15,4 @@ CREATE TABLE notes (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 SELECT * FROM notes;
+
