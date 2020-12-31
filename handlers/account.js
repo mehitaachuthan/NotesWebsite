@@ -5,12 +5,14 @@ $(function(){
     type: "POST",
     url: "../server/account.php",
     data: {
-      action_to_take : "receive_username"
+      action_to_take : "receive_data"
     },
     success: function(username) {
       $("#message").html("<h4>Welcome " + username + "</h4>");
     }
   });
+
+  //add note
 
   //send request to end session if logging out, then move to original screen
   $("#logout_button").on("click", function(e){

@@ -8,7 +8,7 @@
   if($action_to_take === "clear") {
     session_unset();
     session_destroy();
-  } else {
+  } else if($action_to_take === "receive_data") {
     $username = $_SESSION['username'];
     echo $username;
   }

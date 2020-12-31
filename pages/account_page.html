@@ -25,7 +25,7 @@
           <li class="active"><a href="#">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-plus"></span> Add</a></li>
+          <li><a data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-plus"></span> Add</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
           <li><a href="#" id="logout_button"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
@@ -33,5 +33,45 @@
     </nav>
 
     <div id="message"></div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h3 class="modal-title" id="exampleModalLabel">Add Note</h3>
+          </div>
+          <div class="modal-body">
+            <div class = "container">
+              <form id="add_form" class="form-horizontal">
+                <div class="form-group">
+                  <div>
+                    <p>Please enter new note details. All space characters count for body but surrounding space <br> characters removed for title, so title can not be empty.</p>
+                    <div class="error_message" id="general_error"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="note_title">Note Title:</label>
+                  <div>
+                    <input type="text" id="note_title" placeholder="Enter title" name="note_title"><div class="error_message" id="note_title_error"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="note_body">Note:</label>
+                  <div>
+                    <textarea id="note_body" placeholder="Enter note" name="note_body"></textarea><div class="error_message" id="note_body_error"></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
