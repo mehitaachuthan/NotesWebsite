@@ -7,4 +7,11 @@ CREATE TABLE users (
     user_username VARCHAR(20) NOT NULL UNIQUE,
     user_password VARCHAR(20) NOT NULL
 );
-SELECT * FROM users;
+CREATE TABLE notes (
+	note_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id int,
+    note_title VARCHAR(20) NOT NULL UNIQUE,
+    note_body VARCHAR(150) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+SELECT * FROM notes;

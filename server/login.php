@@ -45,8 +45,16 @@
         $general_error_msg = "Invalid login";
       } else {
         #successful login
+        $matched_users = $found->fetchAll();
+        $matched_user = $matched_users[0];
+        $matched_user_id = (int)($matched_user['user_id']);
+
+        #debugging statement, find information about returned stuff
+        #$info = var_export((int)($matched_users[0]['user_id']), true);
+
         session_start();
         $_SESSION['username'] = $user_username;
+        $_SESSION['user_id'] = $matched_user_id;
       }
 
     } else {

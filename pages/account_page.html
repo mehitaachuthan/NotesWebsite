@@ -19,13 +19,13 @@
     <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="../pages/landing_page.html">Notes</a>
+          <a class="navbar-brand" href="#">Notes</a>
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-plus"></span> Add</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-plus"></span> Add</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
           <li><a href="#" id="logout_button"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
@@ -47,28 +47,22 @@
             <div class = "container">
               <form id="add_form" class="form-horizontal">
                 <div class="form-group">
-                  <div>
-                    <p>Please enter new note details. All space characters count for body but surrounding space <br> characters removed for title, so title can not be empty.</p>
-                    <div class="error_message" id="general_error"></div>
-                  </div>
+                  <p>Please enter new note details. All space characters count for body but surrounding space <br> characters removed for title, so title can not be empty. Note max 150 chars. <br> Closing window means progress of text typed is lost.</p>
+                  <div class="error_message" id="general_note_error"></div>
                 </div>
                 <div class="form-group">
                   <label for="note_title">Note Title:</label>
-                  <div>
-                    <input type="text" id="note_title" placeholder="Enter title" name="note_title"><div class="error_message" id="note_title_error"></div>
-                  </div>
+                  <input type="text" id="note_title" placeholder="Enter title" name="note_title"><div class="error_message" id="note_title_error"></div>
                 </div>
                 <div class="form-group">
-                  <label for="note_body">Note:</label>
-                  <div>
-                    <textarea id="note_body" placeholder="Enter note" name="note_body"></textarea><div class="error_message" id="note_body_error"></div>
-                  </div>
+                  <label for="note_body">Note: &emsp;&emsp;</label>
+                  <textarea id="note_body" placeholder="Enter note" name="note_body"></textarea>
                 </div>
               </form>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Add</button>
+            <button type="button" id="add_note_btn" class="btn btn-primary">Add</button>
           </div>
         </div>
       </div>
