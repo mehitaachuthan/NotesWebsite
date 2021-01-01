@@ -9,6 +9,9 @@
   width: 40%;
   max-width: 40%;
 }
+#main_page_error {
+  text-align: center;
+}
 .error_message {
   color: red;
 }
