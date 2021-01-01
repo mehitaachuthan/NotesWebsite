@@ -9,7 +9,8 @@
     session_unset();
     session_destroy();
 
-  } else if($action_to_take === "receive_data" or $action_to_take === "add_data") {
+  } else if($action_to_take === "receive_data" or $action_to_take === "add_data" or $action_to_take === "update_data") {
+    $note_id = "";
     $note_title_data = "";
     $note_body_data = "";
 
@@ -25,6 +26,10 @@
     if($action_to_take === "add_data") {
       $note_title_data = $_POST['note_title_data'];
       $note_body_data = $_POST['note_body_data'];
+    } else if($action_to_take === "update_data") {
+      $note_id = $_POST['note_id_new'];
+      $note_title_data = $_POST['note_title_new'];
+      $note_body_data = $_POST['note_body_new'];
     }
 
     $servername = "localhost";
@@ -53,20 +58,23 @@
           $main_page_error = "Failed to fetch query";
         }
 
-      } else {
-        #add new note
-
+      } else if($action_to_take === "add_data" or $action_to_take === "update_data"){
         #verify that same user not have duplicate note_title
 
-        $sql_statement = "INSERT INTO notes (user_id, note_title, note_body) VALUES (" . $user_id . ", '" . $note_title_data . "', '" . $note_body_data . "');";
+        if($action_to_take === "add_data") {
+          $sql_statement = "INSERT INTO notes (user_id, note_title, note_body) VALUES (" . $user_id . ", '" . $note_title_data . "', '" . $note_body_data . "');";
+        } else if($action_to_take === "update_data") {
+          $sql_statement = "UPDATE notes SET note_title='" . $note_title_data . "', note_body='" . $note_body_data . "' WHERE note_id=" . $note_id . ";";
+        }
 
         $conn->exec($sql_statement);
       }
+
     } catch(PDOException $e) {
       $success = FALSE;
       if($action_to_take === "receive_data") {
         $main_page_error = $e->getMessage();
-      } else {
+      } else if($action_to_take === "add_data" or $action_to_take === "update_data"){
         $general_note_error = $e->getMessage();
       }
     }
@@ -76,7 +84,7 @@
     if($action_to_take === "receive_data") {
       $results = array($username, $success, $notes, $main_page_error);
       echo json_encode($results);
-    } else {
+    } else if($action_to_take === "add_data" or $action_to_take === "update_data"){
       $error_statuses = array($success, $general_note_error, $note_title_error);
       echo json_encode($error_statuses);
     }

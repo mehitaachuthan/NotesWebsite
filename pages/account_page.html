@@ -82,9 +82,9 @@
           </div>
           <div class="modal-body">
             <div class = "container">
-              <form id="update_form" class="form-horizontal">
+              <form id="update_form" class="form-horizontal" data-note-id="">
                 <div class="form-group">
-                  <p>Please enter new note details. All space characters count for body but surrounding space <br> characters removed for title, so title can not be empty. Note max 150 chars. <br> Closing window means progress of text typed is lost.</p>
+                  <p>Can update the note details. Note title may not be same as another <br> already existing title. All space characters count for body but surrounding space <br> characters removed for title, so title can not be empty. Note max 150 chars. <br> Closing window means progress of text changed is lost.</p>
                   <div class="error_message" id="general_update_note_error"></div>
                 </div>
                 <div class="form-group">
@@ -99,7 +99,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="add_note_btn" class="btn btn-primary">Add</button>
+            <button type="button" id="update_note_btn" class="btn btn-primary">Update</button>
           </div>
         </div>
       </div>
