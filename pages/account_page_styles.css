@@ -32,3 +32,6 @@
 .card_title {
   text-align: center;
 }
+#delete_note_btn {
+  background-color: red;
+}
