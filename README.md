@@ -1,2 +1,2 @@
 # NotesWebApp
-Allows users to save thoughts or ideas
+Notes Website allows users to create accounts and save notes with some text.
