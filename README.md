@@ -16,7 +16,7 @@ HTML, CSS, Javascript, PHP, MySQL
 
 4. Rename php.ini-development to php.ini
 
-5. Connect PHP to Apache by adding PHPIniDir, LoadModule, and AddHandler lines at the end of the Apache/conf/httpd file, *num* means version number, which may vary
+5. Connect PHP to Apache by adding PHPIniDir, LoadModule, and AddHandler lines at the end of the Apache/conf/httpd file, *num* means version number, which may vary, and php folder location may also vary, so fill in accordingly
 
 PHPIniDir "php folder location"
 
