@@ -13,8 +13,11 @@ HTML, CSS, Javascript, PHP, MySQL
 3. Install httpd: httpd -k install
 4. Rename php.ini-development to php.ini
 5. Connect PHP to Apache by adding PHPIniDir, LoadModule, and AddHandler lines at the end of the Apache/conf/httpd file, *num* means version number, which may vary
+
 PHPIniDir "php folder location"
+
 LoadModule php*7*_module "php folder location/php*7*apache*2.4*.dll"
+
 AddHandler application/x-httpd-php .php
 6. Uncomment Servername variable in the httpd file
 7. In php.ini file, uncomment extensions for pdo-mysql, ext, and any others needed
