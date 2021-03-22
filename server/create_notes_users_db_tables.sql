@@ -14,5 +14,7 @@ CREATE TABLE notes (
     note_body VARCHAR(150) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+USE notes_users_db;
 SELECT * FROM users;
+USE notes_users_db;
 SELECT * FROM notes;
