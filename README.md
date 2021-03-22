@@ -9,9 +9,13 @@ HTML, CSS, Javascript, PHP, MySQL
 
 # Environment Setup
 1. Download and Install Apache Web Server and MySQL Tools
+
 2. Save PHP downloaded files in a folder located in same folder as Apache folder
+
 3. Install httpd: httpd -k install
+
 4. Rename php.ini-development to php.ini
+
 5. Connect PHP to Apache by adding PHPIniDir, LoadModule, and AddHandler lines at the end of the Apache/conf/httpd file, *num* means version number, which may vary
 
 PHPIniDir "php folder location"
@@ -19,10 +23,15 @@ PHPIniDir "php folder location"
 LoadModule php*7*_module "php folder location/php*7*apache*2.4*.dll"
 
 AddHandler application/x-httpd-php .php
+
 6. Uncomment Servername variable in the httpd file
+
 7. In php.ini file, uncomment extensions for pdo-mysql, ext, and any others needed
+
 8. Change permissions in the directory tabs of the httpd file if needed
+
 9. Add a <virtual host> tag to the httpd file in order to create a url to open the webpage, specify location of notes website folder
+
 10. In <IfModule dir_module> tag, add the location of the folder with the noted website landing page
 
 # How to open website
