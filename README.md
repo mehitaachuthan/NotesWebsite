@@ -8,7 +8,7 @@ It is not easy to keep track of things to do or information, so I created a Note
 HTML, CSS, Javascript, PHP, MySQL
 
 # Environment Setup
-1. Download and Install Apache Web Server and MySQL Tools
+1. Download and Install Apache Web Server and MySQL Tools. Set up user account for MySQL.
 
 2. Save PHP downloaded files in a folder located in same folder as Apache folder
 
@@ -35,7 +35,7 @@ AddHandler application/x-httpd-php .php
 10. In <IfModule dir_module> tag, add the location of the folder with the noted website landing page
 
 # How to open website
-Start the Apache Web Server Service and MySQL Service, and type url specified in the httpd doc into the web browser.
+Start the Apache Web Server Service and MySQL Service, and type url specified in the httpd doc into the web browser. Make sure to fill in username and password details in the php files in order to allow pdo mysql connection to be successful.
 
 # Limitations and Future Improvement
 Currently, only local storage is used, so can only open website and see saved details on a single machine. Possible to expand to cloud storage.
